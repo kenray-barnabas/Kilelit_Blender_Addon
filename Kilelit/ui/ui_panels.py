@@ -275,7 +275,7 @@ class kbkilelit(View3DPanel, bpy.types.Panel):
 
                         col = box.column()
                         col.scale_y = 1.25
-                        col.operator("myct.open_exploerer", text = "Open History Location", icon_value=kbicons["kifolder"].icon_id)
+                        col.operator("myct.open_explorer", text = "Open History Location", icon_value=kbicons["kifolder"].icon_id)
 
                     except:
                         pass
@@ -1119,6 +1119,7 @@ class kbkilelitinfo(View3DPanel, bpy.types.Panel):
         col.scale_y = 1.25
         col.operator("myct.kbspaceportals", text = "KB Space Portals", icon_value=kbicons["kikbspacelogo"].icon_id)
         col.operator("myct.kbportfolio", text = "3D Portfolio", icon_value=kbicons["kikblogo"].icon_id)
+
 
 classes = [kbkilelit, kbrenderperformance, kbviewlayers, kbmtloverride, kbvisibility, kbrenderoutput, kbkilelitinfo]
 

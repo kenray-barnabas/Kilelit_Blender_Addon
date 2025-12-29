@@ -208,27 +208,29 @@ class renderhistoryclear(bpy.types.Operator):
         self.layout.label(text = "All renders will be deleted. Continue?")
 
 class OpenExplorerOperator(bpy.types.Operator):
-    bl_idname = "myct.open_exploerer"
+    bl_idname = "myct.open_explorer"
     bl_label = "Open File Explorer"
     bl_description = "Open OS explorer"
-
 
     def execute(self, context):
         try:
             scene = bpy.context.scene
-            folder_path = bpy.path.abspath(os.path.join(scene.render_history_path))
+            
+            folder_path = bpy.path.abspath(scene.render_history_path)
 
-            #check if the folder path exists
-            if not os.path.exists(folder_path):
-                self.report({'WARNING'}, f"Folder path does not exist: {folder_path}")
+            if not folder_path:
+                self.report({'WARNING'}, "No render history path set.")
                 return {'CANCELLED'}
-
-            #Open the folder path with windows explorer
-            subprocess.Popen(["explorer", '/open,', folder_path])
+            if not os.path.isdir(folder_path):
+                self.report({'WARNING'}, f"Folder does not exist:\n{folder_path}")
+                return {'CANCELLED'}
+            
+            bpy.ops.wm.path_open(filepath=folder_path)
 
         except Exception as e:
             self.report({'ERROR'}, str(e))
         return {'FINISHED'}
+    
 
     def invoke(self, context, event):
         return self.execute(context)
