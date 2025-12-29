@@ -21,9 +21,12 @@ Kilelit is a Blender add-on designed to **speed up rendering workflows**, **simp
 It is especially useful for **artists, beginners, and technical artists** who want faster iteration without digging through Blender’s deep render menus.
 
 ---
+## How to Install
+Installing add-ons in Blender is straight-forward. Go to Blender preferences, add-on, then click on the little drop-down arrow on the top right corner and install from disk. 
+Install the zip file and you should be all set! 
 
 ## Where to Find Kilelit
-**Properties Panel → Render Tab**
+**Viewport right-side**
 
 You will see several collapsible Kilelit panels:
 - Render
